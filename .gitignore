@@ -1,0 +1,29 @@
+# Python
+venv/
+**/__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# Database
+*.db
+backend/launchmind.db
+
+# Uploads
+uploads/
+backend/uploads/
+
+# Node
+**/node_modules/
+
+# Build
+dist/
+build/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
