@@ -72,8 +72,7 @@ app.include_router(password_router, prefix="/api")
 app.include_router(notifications_router, prefix="/api")
 app.include_router(insights_router, prefix="/api")
 app.include_router(profile_photo_router, prefix="/api")
-app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
-
+app.mount("/uploads", StaticFiles(directory="/tmp/uploads"), name="uploads")
 
 @app.get("/")
 def read_root():

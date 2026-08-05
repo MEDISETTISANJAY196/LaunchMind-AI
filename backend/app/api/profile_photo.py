@@ -9,7 +9,7 @@ from app.models.user import User
 
 router = APIRouter(prefix="/profile-photo", tags=["Profile Photo"])
 
-UPLOAD_DIR = "uploads/profile"
+UPLOAD_DIR = "/tmp/uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 
