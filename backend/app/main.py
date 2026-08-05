@@ -31,12 +31,20 @@ from app.api.profile_photo import router as profile_photo_router
 Base.metadata.create_all(bind=engine)
 
 # Create required folders
-for path in (
-    settings.UPLOADS_DIR,
-    settings.VECTOR_DB_DIR,
-    settings.KNOWLEDGE_BASE_DIR,
-):
-    os.makedirs(path, exist_ok=True)
+if os.getenv("VERCEL"):
+    for path in (
+        settings.UPLOADS_DIR,
+        settings.VECTOR_DB_DIR,
+        settings.KNOWLEDGE_BASE_DIR,
+    ):
+        os.makedirs(path, exist_ok=True)
+else:
+    for path in (
+        settings.UPLOADS_DIR,
+        settings.VECTOR_DB_DIR,
+        settings.KNOWLEDGE_BASE_DIR,
+    ):
+        os.makedirs(path, exist_ok=True)
 
 # FastAPI app
 app = FastAPI(
