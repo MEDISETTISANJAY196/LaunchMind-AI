@@ -1,5 +1,5 @@
 const API_BASE =
-  "https://launch-mind-ai-eqtv-qbs9023t0-medisettisanjay196s-projects.vercel.app/api";
+  "https://launch-mind-ai-eqtv-tawny.vercel.app/api";
 
 const getHeaders = () => {
   const token = localStorage.getItem("token");
