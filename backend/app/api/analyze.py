@@ -35,14 +35,12 @@ def analyze_startup(
         raise HTTPException(status_code=404, detail="Startup not found")
 
     # Check if user configured Gemini API Key
-    if not current_user.gemini_api_key:
-        raise HTTPException(
-            status_code=400,
-            detail="Please configure your Gemini API Key in AI Settings."
-        )
+    from app.core.config import settings
 
-    # Decrypt user's Gemini API Key
-    user_api_key = decrypt(current_user.gemini_api_key)
+    user_api_key = settings.GEMINI_API_KEY
+
+    if current_user.gemini_api_key:
+        user_api_key = decrypt(current_user.gemini_api_key)
 
     prompt = f"""
 Analyze this startup idea.
@@ -99,13 +97,12 @@ def competitor_analysis(
     if not startup:
         raise HTTPException(status_code=404, detail="Startup not found")
 
-    if not current_user.gemini_api_key:
-        raise HTTPException(
-            status_code=400,
-            detail="Please configure your Gemini API Key in AI Settings."
-        )
+    from app.core.config import settings
 
-    user_api_key = decrypt(current_user.gemini_api_key)
+    user_api_key = settings.GEMINI_API_KEY
+
+    if current_user.gemini_api_key:
+        user_api_key = decrypt(current_user.gemini_api_key)
 
     prompt = f"""
 You are an experienced startup consultant.
@@ -164,13 +161,12 @@ def business_model_canvas(
     if not startup:
         raise HTTPException(status_code=404, detail="Startup not found")
 
-    if not current_user.gemini_api_key:
-        raise HTTPException(
-            status_code=400,
-            detail="Please configure your Gemini API Key in AI Settings."
-        )
+    from app.core.config import settings
 
-    user_api_key = decrypt(current_user.gemini_api_key)
+    user_api_key = settings.GEMINI_API_KEY
+
+    if current_user.gemini_api_key:
+        user_api_key = decrypt(current_user.gemini_api_key)
 
     prompt = f"""
 You are a startup mentor.
@@ -238,13 +234,12 @@ def generate_pitch_deck(
     if not startup:
         raise HTTPException(status_code=404, detail="Startup not found")
 
-    if not current_user.gemini_api_key:
-        raise HTTPException(
-            status_code=400,
-            detail="Please configure your Gemini API Key in AI Settings."
-        )
+    from app.core.config import settings
 
-    user_api_key = decrypt(current_user.gemini_api_key)
+    user_api_key = settings.GEMINI_API_KEY
+
+    if current_user.gemini_api_key:
+        user_api_key = decrypt(current_user.gemini_api_key)
 
     prompt = f"""
 You are an expert startup investor and pitch deck consultant.
@@ -257,7 +252,7 @@ Stage: {startup.stage}
 Target Audience: {startup.target_audience}
 Description: {startup.description}
 
-Return ONLY this format:
+Return ONLY this format:    
 
 1. Company Overview
 
@@ -308,13 +303,12 @@ def financial_projection(
     if not startup:
         raise HTTPException(status_code=404, detail="Startup not found")
 
-    if not current_user.gemini_api_key:
-        raise HTTPException(
-            status_code=400,
-            detail="Please configure your Gemini API Key in AI Settings."
-        )
+    from app.core.config import settings
 
-    user_api_key = decrypt(current_user.gemini_api_key)
+    user_api_key = settings.GEMINI_API_KEY
+
+    if current_user.gemini_api_key:
+        user_api_key = decrypt(current_user.gemini_api_key)
 
     prompt = f"""
 You are a startup financial consultant.
@@ -390,13 +384,12 @@ def investor_readiness(
     if not startup:
         raise HTTPException(status_code=404, detail="Startup not found")
 
-    if not current_user.gemini_api_key:
-        raise HTTPException(
-            status_code=400,
-            detail="Please configure your Gemini API Key in AI Settings."
-        )
+    from app.core.config import settings
 
-    user_api_key = decrypt(current_user.gemini_api_key)
+    user_api_key = settings.GEMINI_API_KEY
+
+    if current_user.gemini_api_key:
+        user_api_key = decrypt(current_user.gemini_api_key)
 
     prompt = f"""
 You are a professional Venture Capital investor.
@@ -470,13 +463,12 @@ def go_to_market_strategy(
     if not startup:
         raise HTTPException(status_code=404, detail="Startup not found")
 
-    if not current_user.gemini_api_key:
-        raise HTTPException(
-            status_code=400,
-            detail="Please configure your Gemini API Key in AI Settings."
-        )
+    from app.core.config import settings
 
-    user_api_key = decrypt(current_user.gemini_api_key)
+    user_api_key = settings.GEMINI_API_KEY
+
+    if current_user.gemini_api_key:
+        user_api_key = decrypt(current_user.gemini_api_key)
 
     prompt = f"""
 You are a startup growth consultant.
