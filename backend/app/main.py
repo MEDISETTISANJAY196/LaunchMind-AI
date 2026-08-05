@@ -31,23 +31,15 @@ from app.api.profile_photo import router as profile_photo_router
 Base.metadata.create_all(bind=engine)
 
 # Create required folders
-if os.getenv("VERCEL"):
-    for path in (
-        settings.UPLOADS_DIR,
-        settings.VECTOR_DB_DIR,
-        settings.KNOWLEDGE_BASE_DIR,
-    ):
-        os.makedirs(path, exist_ok=True)
-else:
-    # for path in (
-#     settings.UPLOADS_DIR,
-#     settings.VECTOR_DB_DIR,
-#     settings.KNOWLEDGE_BASE_DIR,
-# ):
-#     os.makedirs(path, exist_ok=True)
+for path in (
+    settings.UPLOADS_DIR,
+    settings.VECTOR_DB_DIR,
+    settings.KNOWLEDGE_BASE_DIR,
+):
+    os.makedirs(path, exist_ok=True)
 
 # FastAPI app
-    app = FastAPI(
+app = FastAPI(
     title="LaunchMind-AI API",
     description="Backend AI Services for Startup Analysis, SWOT, Business Model Canvas, and Mentorship.",
     version="1.0.0",
