@@ -18,11 +18,10 @@ class Settings(BaseSettings):
     PROJECT_ROOT: str = os.path.dirname(
         os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     )
-    TMP_DIR = "/tmp"
 
-    KNOWLEDGE_BASE_DIR: str = os.path.join(TMP_DIR, "knowledge_base")
-    VECTOR_DB_DIR: str = os.path.join(TMP_DIR, "vector_db")
-    UPLOADS_DIR: str = os.path.join(TMP_DIR, "uploads")
+    KNOWLEDGE_BASE_DIR: str = "/tmp/knowledge_base"
+    VECTOR_DB_DIR: str = "/tmp/vector_db"
+    UPLOADS_DIR: str = "/tmp/uploads"
 
     model_config = SettingsConfigDict(
         env_file=os.path.join(PROJECT_ROOT, ".env"),
